@@ -1,0 +1,14 @@
+<h1>List of all posts</h1>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <%= link_to "#{post.title}", post_path(id: post.id) %>
+      <%= link_to 'Edit', edit_post_path(id: post.id) %>
+      <%= link_to 'Destroy', post_path(id: post.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
+
+<hr />
+<%= link_to 'New post', new_post_path %>

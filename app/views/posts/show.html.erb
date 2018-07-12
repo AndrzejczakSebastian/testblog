@@ -1,0 +1,36 @@
+<h1>
+<%= "#{@post.title}" %>
+</h1>
+
+
+<p>
+  Content:
+  <%= @post.content %>
+  <hr/>
+  Author: <%= link_to @post.author.fullname, author_path(id: @post.author.id) %>
+  <hr>
+  Created at:
+  <%= @post.created_at %>
+  <hr/>
+  Updated at:
+  <%= @post.updated_at %>
+</p>
+
+<% if @post.comments.any? %>
+<p>
+<h3>Comments:</h3>
+<ul>
+<%@post.comments.each do |c| %>
+  <li>
+    <%= link_to c.content, comment_path(id: c.id) %>
+  </li>
+<% end %>
+<ul>
+</p>
+<% else %>
+  <h3>No comments.</h3>
+<% end %>
+<p />
+
+<p />
+<%= link_to 'Back to Posts', posts_path  %>

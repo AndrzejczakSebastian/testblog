@@ -1,0 +1,20 @@
+<% if @comment.errors.any? %>
+  <ul>
+    <% @comment.errors.full_messages.each do |msg| %>
+      <li> <%= msg %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @comment do |f| %>
+  <%= f.label :content%>
+  <%= f.text_field :content %>
+  <hr />
+  <%= f.label :author_id%>
+  <%= f.select :author_id, @authors_list,include_blank: true, required: true %>
+  <hr />
+  <%= f.label :post_id%>
+  <%= f.select :post_id, @posts_list,include_blank: true, required: true %>
+  <hr />
+  <%= f.submit 'Save' %>
+<% end %>

@@ -1,0 +1,32 @@
+<h1>
+<%= @author.fullname %>
+</h1>
+
+
+<p>
+  Age:
+  <%= @author.age %>
+  <hr/>
+  Created at:
+  <%= @author.created_at %>
+  <hr/>
+  Updated at:
+  <%= @author.updated_at %>
+</p>
+
+<% if @author.posts.any? %>
+<p>
+<h3>Posts:</h3>
+<ul>
+<%@author.posts.each do |p| %>
+  <li>
+    <%= link_to p.title, post_path(id: p.id) %>
+  </li>
+<% end %>
+<ul>
+</p>
+<% else %>
+  <h3>No posts.</h3>
+<% end %>
+<p />
+<%= link_to 'Back to authors', authors_path  %>

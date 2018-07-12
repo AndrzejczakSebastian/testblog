@@ -1,0 +1,22 @@
+<h1>
+<%= "Comment for #{@comment.post.title} by #{@comment.author.fullname}" %>
+</h1>
+
+
+<p>
+  Content:
+  <%= @comment.content %>
+  <hr/>
+  Author: <%= link_to @comment.author.fullname, author_path(id: @comment.author.id) %>
+  <hr/>
+  Post: <%= link_to @comment.post.title, post_path(id: @comment.post.id) %>
+  <hr>
+  Created at:
+  <%= @comment.created_at %>
+  <hr/>
+  Updated at:
+  <%= @comment.updated_at %>
+</p>
+
+<p />
+<%= link_to 'Back to Comments', comments_path  %>

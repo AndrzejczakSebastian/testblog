@@ -1,0 +1,14 @@
+<h1>List of all comments</h1>
+
+<ul>
+  <% @comments.each do |comment| %>
+    <li>
+      <%= link_to "#{comment.content}", comment_path(id: comment.id) %>
+      <%= link_to 'Edit', edit_comment_path(id: comment.id) %>
+      <%= link_to 'Destroy', comment_path(id: comment.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
+
+<hr />
+<%= link_to 'New comment', new_comment_path %>
