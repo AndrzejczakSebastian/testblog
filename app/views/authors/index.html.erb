@@ -1,14 +1,32 @@
+<img style="display: none;" src="https://i.redd.it/ounq1mw5kdxy.gif"/>
+
+
+<div class="jumbotron">
 <h1>List of all authors</h1>
+</div>
 
-<ul>
+<div class="container authors">
   <% @authors.each do |author| %>
-    <li>
-      <%= link_to author.fullname, author_path(id: author.id) %>
-      <%= link_to 'Edit', edit_author_path(id: author.id) %>
-      <%= link_to 'Destroy', author_path(id: author.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-    </li>
+    <%= render 'author', author: author %>
   <% end %>
-</ul>
-
+</div>
 <hr />
-<%= link_to 'New author', new_author_path %>
+
+<%= form_for @author, remote: true, format: :js, html: { class: "new-autor" }  do |f|%>
+  <div calss="form-group">
+    <%= f.label :name%>
+    <%= f.text_field :name, placeholder: 'Enter name for author...' %>
+  </div>
+  <hr/>
+  <div calss="form-group">
+    <%= f.label :surname%>
+    <%= f.text_field :surname, placeholder: 'Enter surname for author...' %>
+  </div>
+  <hr/>
+  <div calss="form-group">
+    <%= f.label :age%>
+    <%= f.number_field :age, placeholder: 'Enter age for author...'  %>
+  </div>
+  <hr />
+  <%= f.submit 'Save', role: 'button', class: 'btn btn-primary' %>
+<% end %>

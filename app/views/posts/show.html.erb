@@ -1,7 +1,8 @@
-<h1>
-<%= "#{@post.title}" %>
-</h1>
-
+<div class="jumbotron">
+  <h1>
+    <%= "#{@post.title}" %>
+  </h1>
+</div>
 
 <p>
   Content:
@@ -33,4 +34,4 @@
 <p />
 
 <p />
-<%= link_to 'Back to Posts', posts_path  %>
+<%= link_to 'Back to Posts', posts_path, role: 'button', class: 'btn btn-primary'  %>

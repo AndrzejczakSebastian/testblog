@@ -16,5 +16,5 @@
   <%= f.label :post_id%>
   <%= f.select :post_id, @posts_list,include_blank: true, required: true %>
   <hr />
-  <%= f.submit 'Save' %>
+  <%= f.submit 'Save', role: 'button', class: 'btn btn-primary'  %>
 <% end %>

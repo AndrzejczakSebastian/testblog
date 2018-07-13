@@ -7,14 +7,20 @@
 <% end %>
 
 <%= form_for @post do |f| %>
-  <%= f.label :title%>
-  <%= f.text_field :title %>
+  <div class="form-group">
+    <%= f.label :title%>
+    <%= f.text_field :title, placeholder: 'Enter title for post...'  %>
+  </div>
   <hr/>
-  <%= f.label :content%>
-  <%= f.text_field :content %>
+  <div class="form-group">
+    <%= f.label :content%>
+    <%= f.text_field :content, placeholder: 'Enter content of post...' %>
+  </div>
   <hr />
-  <%= f.label :author_id%>
-  <%= f.select :author_id, @authors_list,include_blank: true, required: true %>
+  <div class="form-group">
+    <%= f.label :author_id%>
+    <%= f.select :author_id, @authors_list,include_blank: true, required: true %>
+  </div>
   <hr />
-  <%= f.submit 'Save' %>
+  <%= f.submit 'Save', role: 'button', class: 'btn btn-primary'  %>
 <% end %>

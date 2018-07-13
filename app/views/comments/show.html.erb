@@ -1,6 +1,8 @@
-<h1>
-<%= "Comment for #{@comment.post.title} by #{@comment.author.fullname}" %>
-</h1>
+<div class="jumbotron">
+  <h1>
+    <%= "Comment for #{@comment.post.title} by #{@comment.author.fullname}" %>
+  </h1>
+</div>
 
 
 <p>
@@ -19,4 +21,4 @@
 </p>
 
 <p />
-<%= link_to 'Back to Comments', comments_path  %>
+<%= link_to 'Back to Comments', comments_path, role: 'button', class: 'btn btn-primary'   %>
