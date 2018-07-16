@@ -17,9 +17,11 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <%= link_to 'Authors', authors_path, role: 'button', class: 'dropdown-item' %>
+          <!-- <div class="dropdown-divider"></div> -->
+          <!-- <%= link_to 'New author', new_author_path, role: 'button', class: 'dropdown-item' %> -->
+          <% if Author.count > 0 %>
           <div class="dropdown-divider"></div>
-          <%= link_to 'New author', new_author_path, role: 'button', class: 'dropdown-item' %>
-          <div class="dropdown-divider"></div>
+          <% end %>
           <% Author.all.each do |f| %>
             <%= link_to f.fullname, author_path(id: f.id), class: 'dropdown-item' %>
           <% end %>
