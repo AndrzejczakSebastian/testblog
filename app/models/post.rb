@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
 
   #has_many :author_post
   #has_many :authors, through: :author_post
-  belongs_to :author, dependent: :destroy,
+  belongs_to :author, dependent: :destroy
 
   has_many :comments
 
